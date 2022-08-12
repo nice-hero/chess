@@ -70,7 +70,7 @@ def create_posts(get_pgn: Post):
 
 
     #File = open(r"B:/Programs_Installed_Here/pycharm_project/fastapi/payload.pgn","w")  # open a file to save pgn payload data in it ... and open it later from terminal
-    File = open(r"payload.pgn","w")  # open a file to save pgn payload data in it ... and open it later from terminal # server compatible path
+    File = open(r"/app/./payload.pgn","w")  # open a file to save pgn payload data in it ... and open it later from terminal # server compatible path
     File.write(pgn_str)
     # File_object.writelines(L) for L = [str1, str2, str3]   # write Multible lines to file
     print(pgn_str,"str")
@@ -82,7 +82,7 @@ def create_posts(get_pgn: Post):
     # todo : we need to edit this path/command to be compatible/executed with terminal/linux rather than cmd/windows
     #result = subprocess.check_output(["B:/Programs_Installed_Here/pycharm_project/fastapi/pgn-extract.exe", "-F", "payload.pgn", "--json", "-s"],encoding='ascii', stderr=subprocess.STDOUT, shell=False)
     result = subprocess.check_output(
-        ["pgn-extract.exe", "-F", "payload.pgn", "--json", "-s"],encoding='ascii', stderr=subprocess.STDOUT, shell=False) # server compatible path
+        ["/app/./pgn-extract.exe", "-F", "payload.pgn", "--json", "-s"],encoding='ascii', stderr=subprocess.STDOUT, shell=False) # server compatible path
 
     # TODO:
     result = re.findall(r'(?<=\")[^"]*\/.*?\/.*?\/.*?\/.*?\/.*?\/.*?\/[^"]*(?=\")', result)[0] # RegEx (Regular Expression) to Extract FEN From json Data
