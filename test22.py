@@ -35,7 +35,7 @@ class Post(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"message": "تم تهكيرك بنجاح ^_^ welcome to my api!!!!ghkuhkljh!!!!!!1"}
+    return {"message": "تم تهكيرك بنجاح ^_^ welcome to my api!!!!ghkuhkljh!!!1"}
 
 
 
@@ -48,7 +48,7 @@ def get_posts():
 
 
 
-
+# terminal >> uvicorn --host 0.0.0.0 test22:app --reload
 @app.post("/pgntofen")
 def create_posts(get_pgn: Post):
     pgn_str = get_pgn.pgn
@@ -80,6 +80,8 @@ def create_posts(get_pgn: Post):
     # todo : we need to edit this path/command to be compatible/executed with terminal/linux rather than cmd/windows
     result = subprocess.check_output(["B:/Programs_Installed_Here/pycharm_project/fastapi/pgn-extract.exe", "-F", "payload.pgn", "--json", "-s"],encoding='ascii', stderr=subprocess.STDOUT, shell=False)
 
+
+    # TODO:
     result = re.findall(r'(?<=\")[^"]*\/.*?\/.*?\/.*?\/.*?\/.*?\/.*?\/[^"]*(?=\")', result)[0] # RegEx (Regular Expression) to Extract FEN From json Data
 
 
